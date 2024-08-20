@@ -30,14 +30,14 @@ public class CraftsmanController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addCraftsman(@Valid @RequestBody Craftsman craftsman, Errors errors) {
+    public ResponseEntity addCraftsman(@Valid @RequestBody Craftsman craftsman) {
 
         craftsmanService.saveCraftsman(craftsman);
         return ResponseEntity.status(201).body("Craftsman added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity  updateCraftsman(@PathVariable int id, @Valid @RequestBody Craftsman craftsman, Errors errors) {
+    public ResponseEntity  updateCraftsman(@PathVariable int id, @Valid @RequestBody Craftsman craftsman) {
 
         craftsmanService.updateCraftsman(id, craftsman);
         return ResponseEntity.status(200).body("Craftsman updated successfully");
