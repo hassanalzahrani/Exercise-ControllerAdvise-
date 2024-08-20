@@ -29,14 +29,14 @@ public class CustomerController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addCustomer(@Valid @RequestBody Customer customer, Errors errors) {
+    public ResponseEntity addCustomer(@Valid @RequestBody Customer customer) {
 
         customerService.saveCustomer(customer);
         return ResponseEntity.status(201).body("Customer added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateCustomer(@PathVariable int id, @Valid @RequestBody Customer customer, Errors errors) {
+    public ResponseEntity updateCustomer(@PathVariable int id, @Valid @RequestBody Customer customer) {
 
         customerService.updateCustomer(id, customer);
         return ResponseEntity.status(200).body("Customer updated successfully");
